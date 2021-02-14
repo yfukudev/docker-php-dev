@@ -26,6 +26,7 @@ services:
       - MYSQL_USER=${MYSQL_USER:-user}
       - MYSQL_PASSWORD=${MYSQL_PASS:-password}
       - MYSQL_ROOT_PASSWORD=${MYSQL_PASS:-password}
+      - TZ=Asia/Tokyo
   pgsql:
     image: postgres:13.1-alpine
     ports: 
@@ -35,3 +36,4 @@ services:
     environment:
       - POSTGRES_USER=${PGSQL_USER:-user}
       - POSTGRES_PASSWORD=${PGSQL_PASS:-password}
+      - PGTZ=Asia/Tokyo
