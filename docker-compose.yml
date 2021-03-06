@@ -37,3 +37,8 @@ services:
       - POSTGRES_USER=${PGSQL_USER:-user}
       - POSTGRES_PASSWORD=${PGSQL_PASS:-password}
       - PGTZ=Asia/Tokyo
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - ${MAIL_SMTP:-1025}:1025
+      - ${MAIL_UI:-8025}:8025
