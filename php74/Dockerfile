@@ -3,7 +3,7 @@ FROM php:7.4-fpm-alpine3.13
 RUN apk add --update --no-cache tzdata && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
     echo "Asia/Tokyo" > /etc/timezone && \
-    apk del tzdata
+    apk del tzdata 
 
 RUN apk add --update --no-cache \
     curl-dev \
@@ -18,10 +18,10 @@ RUN apk add --update --no-cache \
     gmp-dev \
     oniguruma-dev
 
-RUN docker-php-source extract
-RUN cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN docker-php-ext-install pdo \
+RUN docker-php-source extract \
+    && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install pdo \
     pdo_mysql \
     mysqli \
     pdo_pgsql \
