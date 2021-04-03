@@ -16,11 +16,17 @@ RUN apk add --update --no-cache \
     libzip-dev \
     unzip \
     gmp-dev \
-    oniguruma-dev
+    oniguruma-dev \
+    autoconf \
+    gcc \
+    g++ \
+    make
 
 RUN docker-php-source extract \
     && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug \
     && docker-php-ext-install pdo \
     pdo_mysql \
     mysqli \
