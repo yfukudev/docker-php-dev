@@ -19,6 +19,8 @@ RUN apk add --update --no-cache \
 RUN docker-php-source extract \
     && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
     && docker-php-ext-configure gd --with-png-dir=/usr/include --with-jpeg-dir=/usr/include \
+    && pecl install xdebug-2.5.5 \
+    && docker-php-ext-enable xdebug \
     && docker-php-ext-install pdo \
     pdo_mysql \
     mysqli \
