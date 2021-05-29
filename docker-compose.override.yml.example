@@ -1,0 +1,9 @@
+version: '3'
+
+services: 
+  php56:
+    extra_hosts: 
+      - "host.docker.internal:${DOCKER_HOST_IP}"
+  php74:
+    extra_hosts: 
+      - "host.docker.internal:${DOCKER_HOST_IP}"
