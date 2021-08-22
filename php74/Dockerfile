@@ -20,7 +20,8 @@ RUN apk add --update --no-cache \
     autoconf \
     gcc \
     g++ \
-    make
+    make \
+    npm
 
 RUN docker-php-source extract \
     && cp /usr/src/php/ext/openssl/config0.m4 /usr/src/php/ext/openssl/config.m4 \
